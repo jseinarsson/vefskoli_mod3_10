@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+
+// COLOR SCHEME
+
+$c-dark: #1C0A33;
+$c-light: #BFF799;
+
+// BORDER
+$innerBorder: 3px solid $c-light;
+$outerBorder: 5px solid $c-light;
+
+//FONT: EXO2
+
+$font: 'Exo 2', sans-serif;
+$font-size: 12px;
+
+$bold: 700;
+$regular: 400;
+$thin: 100;
+
+%tracked {
+    letter-spacing: 0.5em;
+}
+
+//PLACEHOLDERS
+
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
