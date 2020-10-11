@@ -1,0 +1,79 @@
+@use 'variables' as var;
+
+.dashboard {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: [header-start] 55px [header-end main-start] auto [main-end footer-start] 55px [footer-end];
+
+    &.hidden {
+        display: none;
+    }
+
+    &__header {
+        border-bottom: var.$outerBorder;
+        padding: 12px;
+
+        font-size: 1.1rem;
+        text-transform: uppercase;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        nav {
+            a {
+                color: var.$c-light;
+                text-decoration: none;
+                padding: 6px;
+
+                transition: all 500ms;
+
+                &:hover {
+                    color: var.$c-dark;
+                    background-color: var.$c-light;
+                }
+            }
+        }
+    }
+
+    &__main {
+        section {
+            display: none;
+            height: 30%;
+            width: 100%;
+        }
+
+        .active {
+            display: block;
+        }
+    }
+
+    &__footer {
+        border-top: var.$outerBorder;
+        width: 100%;
+        padding: 12px;
+
+        font-size: 1.1rem;
+        font-weight: var.$thin;
+        text-transform: uppercase;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        b {
+            font-weight: var.$regular;
+        }
+
+        div:nth-child(2) {
+            margin-left: 24px;
+            text-align: left;
+            flex-grow: 2;
+        }
+
+        div:last-child {
+            text-align: right;
+        }
+    }
+}

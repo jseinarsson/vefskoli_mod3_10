@@ -18,21 +18,31 @@
     <!-- This is the main part of the website with a header/navigation, a footer and the various "states" of the website -->
     <div class="screen dashboard hidden">
         <!-- Header is fixed and stays stays put between pages -->
-        <header>
-            <p>USER: <span class="user__name">USER</span></p>
+        <header class="dashboard__header">
+            <div><span id="nameOutput">user</span></div>
+            <nav>
+                <a href="currentplanet" class="nav__item">Current Planet</a>
+                <a href="solarsystem" class="nav__item">Solar System</a>
+                <a href="travellog" class="nav__item">Travel Log</a>
+            </nav>
         </header>
         <!-- This is the container for the "website/app", each section represents a different "stage" -->
-        <main>
-            <section>
-            
+        <main class="dashboard__main">
+            <section id="currentplanet" class="page active">
+                Current Planet
             </section>
-            <section class="hidden">
-
+            <section id="solarsystem" class="page">
+                The Solar System
+            </section>
+            <section id="travellog" class="page">
+                Note taking app
             </section>
         </main>
         <!-- Footer is fixed ad stays put between pages -->
-        <footer>
-
+        <footer class="dashboard__footer">
+            <div><p><b>Location:</b> Earth</p></div>
+            <div><b>Distance travelled:</b> 63,300,000 km</div>
+            <div><b>Local time:</b> <span id="dateOutput">Calculating time difference...</span></div>
         </footer>
     </div>
 
