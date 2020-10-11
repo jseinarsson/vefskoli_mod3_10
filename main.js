@@ -6,6 +6,22 @@ const dashboard = document.querySelector(".dashboard")
 const nameInput = document.querySelector("#name");
 const nameOutput = document.querySelector(".user__name");
 
+// Only show login screen on first load
+window.onload = function () {
+    if (!('repeatVisitor' in localStorage)) {
+        // If repeatVisitor does not exist then create a localstorage item called repeatVisitor and set it to true
+        localStorage.setItem("repeatVisitor", true);
+    } else {
+        // If repeatVisitor exists, hide the login screen, pick up the username stored in the localStorage and display the dashboard
+        login.classList.toggle("hidden");
+        dashboard.classList.toggle("hidden");
+
+        const username = localStorage.getItem('username');
+        const usernameOutput = document.createTextNode(username);
+        nameOutput.replaceChild(usernameOutput, nameOutput.lastChild);
+    }
+}
+
 // Event listener, function occurs on form submit
 form.addEventListener('submit', function (e) {
     // Prevent default action of submit
@@ -34,4 +50,3 @@ form.addEventListener('submit', function (e) {
     }
 });
 
-// Only show login screen on first load
