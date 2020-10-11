@@ -2,6 +2,7 @@
 
 .login {
     @extend %flex-center;
+    flex-direction: column;
 
     &__form {
         @extend %flex-center;
@@ -54,5 +55,11 @@
             }
 
         }
+    }
+
+    p {
+        font-size: 1rem;
+        @extend %tracked;
+        margin-bottom: 24px;
     }
 }

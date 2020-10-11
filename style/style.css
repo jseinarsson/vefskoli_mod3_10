@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap");
-.login__form input, .login__form button {
+.login__form input, .login__form button, .login p {
   letter-spacing: 0.5em;
 }
 
@@ -52,6 +52,9 @@ body {
   display: none;
 }
 
+.login {
+  flex-direction: column;
+}
 .login__form {
   flex-direction: column;
   width: 350px;
@@ -86,6 +89,10 @@ body {
 .login__form button:hover, .login__form button:focus {
   background-color: #BFF799;
   color: #1C0A33;
+}
+.login p {
+  font-size: 1rem;
+  margin-bottom: 24px;
 }
 
 /*# sourceMappingURL=style.css.map */
