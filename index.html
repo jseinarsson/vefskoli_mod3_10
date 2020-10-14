@@ -28,14 +28,46 @@
         </header>
         <!-- This is the container for the "website/app", each section represents a different "stage" -->
         <main class="dashboard__main">
-            <section id="currentplanet" class="page active">
-                Current Planet
+            <section id="currentplanet" class="page">
+                <div class="page__container">
+                    <div class="page__currentplanet">
+                        <h3>EARTH</h3>
+                        <img src="img/Earth.png">
+                        <p>This is the third rock from the sun, <b>Earth</b>, also known as Gaia or Terra. It formed over 4.5 billion earth years ago, has one natural satellite, orbits around the sun in 365.25 earth days. It sustains life and it's apex predator is the homo sapiens.</p>
+                    </div>
+                </div>
             </section>
             <section id="solarsystem" class="page">
-                The Solar System
+                <div class="page__container">
+                    <div class="page__solarsystem">
+                        <img src="img/solarsystem_1.png">
+                    </div>
+                </div>
             </section>
-            <section id="travellog" class="page">
-                Note taking app
+            <section id="travellog" class="page active">
+                <div class="page__container">
+                    <div class="page__travellog">
+                        <form class="log__input">
+                            <textarea class="log__text" id="logentry" placeholder="LOG ENTRY"></textarea>
+                            <button type="submit" class="log__button">Add entry</button>
+                        </form>
+                        <ul class="log__output">
+                            <li class="log__entry">
+                                <p class="entry__timestamp">October 3, 2020</p>
+                                <p class="entry__text">Reminder to self: Need to fix radio. Getting sick of The Proclaimers!!</p>
+                            </li>
+                            </li>
+                            <li class="log__entry">
+                                <p class="entry__timestamp">October 10, 2020</p>
+                                <p class="entry__text">I wonder if the tourist quarantine applies to interplanetary travellers...</p>
+                            </li>
+                            <li class="log__entry">
+                                <p class="entry__timestamp">October 14, 2020</p>
+                                <p class="entry__text">Don't think I'll ever get used to travelling at warp speed, but the galaxy's best tacos are well worth the bag-hurling that preceeds them.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </section>
         </main>
         <!-- Footer is fixed ad stays put between pages -->

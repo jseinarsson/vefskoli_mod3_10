@@ -9,7 +9,7 @@ const nameInput = document.querySelector("#name");
 const nameOutput = document.querySelector("#nameOutput");
 
 // Only show login screen on first load
-window.onload = function () {
+window.onload = function (e) {
     if (!('repeatVisitor' in localStorage)) {
         // If repeatVisitor does not exist then create a localstorage item called repeatVisitor and set it to true
         localStorage.setItem("repeatVisitor", true);
@@ -22,6 +22,29 @@ window.onload = function () {
         const welcomeBackUser = document.createTextNode(`Welcome back ${username}`);
         nameOutput.replaceChild(welcomeBackUser, nameOutput.lastChild);
     }
+
+    // Run the function loadPath, which theoretically brings up the correct items for each path
+    function loadPath() {
+        const currentPath = (window.location.pathname);
+    
+        pages.forEach(function (page) {
+            page.classList.remove('active');
+        });
+    
+        if (currentPath === '/' || currentPath === '/currentplanet') {
+            console.log(window.location.pathname);
+            const currentPlanet = document.getElementById('currentplanet');
+            currentPlanet.classList.add('active');
+        } else if (currentPath === '/solarsystem') {
+            const solarSystem = document.getElementById('solarsystem');
+            solarSystem.classList.add('active');
+        } else if (currentPath === '/travellog') {
+            const travelLog = document.getElementById('travellog');
+            travelLog.classList.add('active');
+        }
+    }
+
+    //loadPath();
 }
 
 // Event listener, function occurs on form submit
@@ -68,7 +91,7 @@ navItems.forEach(function (link) {
         e.preventDefault();
         
         // Pushes url
-        // history.pushState(null, null, linkName);
+        history.pushState(linkName, null, linkName);
 
         // Iterate through and remove active class from each page/state
         pages.forEach(function (page) {
@@ -76,8 +99,61 @@ navItems.forEach(function (link) {
         });
         // Add active class to the page being loaded
         loadPage.classList.add('active');
+
+        //console.log(window.location.pathname);
     });
 });
+
+// Makes browser back/forward buttons work
+window.onpopstate = function (e) {
+    console.log(e.state);
+    const loadPage = document.getElementById(e.state);
+    
+    pages.forEach(function (page) {
+        page.classList.remove('active');
+    });
+
+    loadPage.classList.add('active');
+}
+
+// Travel log
+const logInput = document.querySelector('.log__input');
+const logOutput = document.querySelector('.log__output');
+
+logInput.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Grab text from textarea and time at submit
+    const logTextArea = document.querySelector('.log__text');
+    let today = new Date();
+    let months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+    let date = today.getDate();
+    let month = months[today.getMonth()];
+    let year = today.getFullYear();
+
+    const submitDate = document.createTextNode(`${month} ${date}, ${year}`);
+    const logText = document.createTextNode(logTextArea.value);
+    
+    // Create new list item
+    const newListItem = document.createElement('li');
+    newListItem.classList.add('log__entry');
+
+    const newListParagraphTime = document.createElement('p');
+    newListParagraphTime.classList.add('entry__timestamp');
+    newListParagraphTime.appendChild(submitDate);
+    newListItem.appendChild(newListParagraphTime);
+
+    const newListParagraphText = document.createElement('p');
+    newListParagraphText.classList.add('entry__text');
+    newListParagraphText.appendChild(logText);
+    newListItem.appendChild(newListParagraphText);
+
+    // Add list item to DOM
+    logOutput.appendChild(newListItem);
+
+    
+})
 
 // Return today's date
 const dateOutput = document.querySelector("#dateOutput");

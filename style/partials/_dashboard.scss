@@ -40,7 +40,7 @@
     &__main {
         section {
             display: none;
-            height: 30%;
+            height: 100%;
             width: 100%;
         }
 
@@ -75,5 +75,127 @@
         div:last-child {
             text-align: right;
         }
+    }
+}
+
+.page {
+    &__container {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+
+        //background-color: olive;
+
+        @extend %flex-center;
+    }
+
+    &__currentplanet {
+        height: 100%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        @media (max-width: 375px) {
+            width: 90%;
+        }
+
+        h3 {
+            font-size: 2rem;
+            font-weight: var.$regular;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        p {
+            font-size: 1rem;
+            text-align: center;
+        }
+    }
+
+    &__solarsystem {
+        width: 100%;
+        height: 100%;
+        @extend %flex-center;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__travellog {
+        height: 100%;
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+    }
+}
+
+.log {
+    &__input {
+        @extend %flex-center;
+        flex-direction: column;
+    }
+
+    &__output {
+        @extend %flex-center;
+        flex-direction: column-reverse;
+
+        overflow: scroll;
+    }
+
+    &__text {
+        background-color: var.$c-light;
+        height: 80%;
+        width: 80%;
+        padding: 12px;
+
+        color: var.$c-dark;
+
+        margin-bottom: 12px;
+
+        &::placeholder {
+            color: var.$c-dark;
+        }
+    }
+
+    &__button {
+        width: 50%;
+        height: 40px;
+        margin-top: 12px;
+        border: var.$innerBorder;
+
+        text-align: center;
+        text-transform: uppercase;
+        @extend %tracked;
+
+        transition: all 1000ms;
+
+        &:hover, 
+        &:focus {
+            background-color: var.$c-light;
+            color: var.$c-dark;
+        }
+    }
+
+    &__entry {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+
+        margin-bottom: 24px;
+    }
+}
+
+.entry {
+    &__timestamp {
+        text-decoration: underline;
+        text-transform: uppercase;
+        margin-bottom: 6px;
     }
 }
