@@ -108,6 +108,7 @@
 
         img {
             width: 100%;
+            object-fit: contain;
         }
 
         p {
@@ -122,7 +123,8 @@
         @extend %flex-center;
 
         img {
-            width: 100%;
+            max-height: 70vh;
+            object-fit: scale-down;
         }
     }
 

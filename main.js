@@ -44,7 +44,7 @@ window.onload = function (e) {
         }
     }
 
-    //loadPath();
+    loadPath();
 }
 
 // Event listener, function occurs on form submit
@@ -151,8 +151,6 @@ logInput.addEventListener('submit', function (e) {
 
     // Add list item to DOM
     logOutput.appendChild(newListItem);
-
-    
 })
 
 // Return today's date
